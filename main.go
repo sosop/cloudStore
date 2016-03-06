@@ -7,9 +7,9 @@ import (
 
 func main() {
 	var s store.Store
-	accessKey := "O3TdDpbhK1iLGT7lEIw8SD7k41D1I2Z_YItPYizz"
-	secretKey := "sjI9C6b7EqO9NEJb9g4ow0z1dozkhqL0r5-K2kUx"
-	domain := "7xrkxc.com1.z0.glb.clouddn.com"
+	accessKey := ""
+	secretKey := ""
+	domain := ""
 	s = store.NewQiniu(accessKey, secretKey, 0)
 	// s.UploadFile("test", "/Users/mac/cutting/00.jpg")
 	file, err := os.Open("/Users/mac/Downloads/test.jpg")
