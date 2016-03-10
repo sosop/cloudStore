@@ -52,6 +52,10 @@ func (qn *Qiniu) Download(domain, key string) (io.ReadCloser, error) {
 	return qn.DownloadByUrl(baseUrl)
 }
 
+func (qn *Qiniu) MakePrivateUrl(url string) string {
+	return qn.client.MakePrivateUrl(url, nil)
+}
+
 func (qn *Qiniu) DownloadByUrl(url string) (io.ReadCloser, error) {
 	privateUrl := qn.client.MakePrivateUrl(url, nil)
 	resp, err := http.Get(privateUrl)
