@@ -13,6 +13,7 @@ type Store interface {
 	UploadData(bucketName string, reader io.Reader, sizeOfFile int64) (string, error)
 	Download(domain, key string) (io.ReadCloser, error)
 	DownloadByUrl(url string) (io.ReadCloser, error)
+	MakePrivateUrl(url string) string
 }
 
 type Qiniu struct {
