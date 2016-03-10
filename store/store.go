@@ -13,7 +13,6 @@ type Store interface {
 	UploadData(bucketName string, reader io.Reader, sizeOfFile int64) (string, error)
 	Download(domain, key string) (io.ReadCloser, error)
 	DownloadByUrl(url string) (io.ReadCloser, error)
-	MakePrivateUrl(url string) string
 }
 
 type Qiniu struct {
@@ -51,10 +50,6 @@ func (qn *Qiniu) UploadData(bucketName string, reader io.Reader, sizeOfFile int6
 func (qn *Qiniu) Download(domain, key string) (io.ReadCloser, error) {
 	baseUrl := kodo.MakeBaseUrl(domain, key)
 	return qn.DownloadByUrl(baseUrl)
-}
-
-func (qn *Qiniu) MakePrivateUrl(url string) string {
-	return qn.client.MakePrivateUrl(url, nil)
 }
 
 func (qn *Qiniu) DownloadByUrl(url string) (io.ReadCloser, error) {
